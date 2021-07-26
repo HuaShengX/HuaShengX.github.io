@@ -89,21 +89,19 @@
 
 <p>2.开容器</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=密码 mysql</span><br></pre></td></tr></table></figure></div>
-
-<p>3.进入</p>
+<p>&lt;！–more–&gt;<br>3.进入</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it 容器id bash</span><br></pre></td></tr></table></figure></div>
 
 <p>4.查看</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure></div>
 
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>&lt;！–more–&gt;</p>
-<h3 id="docker装sql-server"><a href="#docker装sql-server" class="headerlink" title="docker装sql server"></a>docker装sql server</h3><p>1.拉取镜像</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="docker装sql-server"><a href="#docker装sql-server" class="headerlink" title="docker装sql server"></a>docker装sql server</h3><p>1.拉取镜像</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mcr.microsoft.com/mssql/server:2019-latest</span><br></pre></td></tr></table></figure></div>
 
 <p>2.查看镜像</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></div>
 
-<p>3.我的密码为Zhihongwei46！其他密码均为zhihongwei</p>
+<p>3.密码要有大写字符和数字特殊字符</p>
 <div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -e &quot;ACCEPT_EULA=Y&quot; -e &quot;SA_PASSWORD=密码&quot; -p 1433:1433 --name mssql -v /data:/var/opt/mssql/data -d mcr.microsoft.com/mssql/server:2019-latest</span><br></pre></td></tr></table></figure></div>
 
 <p>4.检查容器是否启动</p>
