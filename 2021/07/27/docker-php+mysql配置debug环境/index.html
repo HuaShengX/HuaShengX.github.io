@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="docker-php+mysql配置debug环境1.安装docker 装好后若打开遇到乱码百度搜 暂时解决方案为在cmd中输入netsh winsock reset然后重新打开2.进入cmd输入12docker run -d -p 10001:80 -v 自己的文件中的位置:&#x2F;var&#x2F;www&#x2F;html php:5.6-apachedocker run -d -p 10002:80 -v 自己">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="docker-php+mysql配置debug环境1.安装docker 装好后若打开遇到乱码百度搜 暂时解决方案为在cmd中输入netsh winsock reset然后重新打开2.进入cmd输入12docker run -d -p 10001:80 -v 自己的文件中的位置:&#x2F;var&#x2F;www&#x2F;html php:5.6-apachedocker run -d -p 10002:80 -v 自己">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-27T06:58:32.136Z">
+<meta property="article:modified_time" content="2021-07-26T09:20:03.990Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="无">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-docker-php+mysql配置debug环境" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-meta">
+    <a href="/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time datetime="2021-07-27T06:58:32.136Z" itemprop="datePublished">2021-07-27</time>
+</a>
+    
+    
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <hr>
+<h2 id="docker-php-mysql配置debug环境"><a href="#docker-php-mysql配置debug环境" class="headerlink" title=" docker-php+mysql配置debug环境"></a> docker-php+mysql配置debug环境</h2><h5 id="1-安装docker-装好后若打开遇到乱码百度搜-暂时解决方案为在cmd中输入netsh-winsock-reset然后重新打开"><a href="#1-安装docker-装好后若打开遇到乱码百度搜-暂时解决方案为在cmd中输入netsh-winsock-reset然后重新打开" class="headerlink" title="1.安装docker 装好后若打开遇到乱码百度搜 暂时解决方案为在cmd中输入netsh winsock reset然后重新打开"></a>1.安装docker 装好后若打开遇到乱码百度搜 暂时解决方案为在cmd中输入netsh winsock reset然后重新打开</h5><h5 id="2-进入cmd输入"><a href="#2-进入cmd输入" class="headerlink" title="2.进入cmd输入"></a>2.进入cmd输入</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 10001:80 -v 自己的文件中的位置:/var/www/html php:5.6-apache</span><br><span class="line">docker run -d -p 10002:80 -v 自己的文件中的位置:/var/www/html php:7.4-apache</span><br></pre></td></tr></table></figure></div>
+
+<span id="more"></span>
+
+<p>我的为F:\Docker\www\html   记得此位置里要写一个php</p>
+<p>用记事本写</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">phpinfo();</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></div>
+
+<p>然后将txt修改为php就转换完成</p>
+<h5 id="3-docker-ps——-显示正在运行的容器"><a href="#3-docker-ps——-显示正在运行的容器" class="headerlink" title="3.docker ps—— 显示正在运行的容器"></a>3.docker ps—— 显示正在运行的容器</h5><p>docker exec -it 容器名字 bash  —— 进入容器</p>
+<h5 id="4-安装vim并换源（一行一行输入）"><a href="#4-安装vim并换源（一行一行输入）" class="headerlink" title="4.安装vim并换源（一行一行输入）"></a>4.安装vim并换源（一行一行输入）</h5><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo &#x27;deb http://mirrors.aliyun.com/debian/ buster main non-free contrib</span><br><span class="line">deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib </span><br><span class="line">deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib </span><br><span class="line">deb http://mirrors.aliyun.com/debian-security/ buster/updates main non-free contrib </span><br><span class="line">deb-src http://mirrors.aliyun.com/debian-security/ buster/updates main non-free contrib&#x27;&gt; /etc/apt/sources.list</span><br></pre></td></tr></table></figure></div>
+
+<p>输入完再</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br></pre></td></tr></table></figure></div>
+
+<p>然后</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install -y vim</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="5-安装debug模块"><a href="#5-安装debug模块" class="headerlink" title="5.安装debug模块"></a>5.安装debug模块</h5><p>php5.6版本</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-php-ext-install mysqli</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-php-ext-install mysql</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl install xdebug-2.5.0                  </span><br></pre></td></tr></table></figure></div>
+
+<p>第三行代码输完会出现youshould add   “xxxx”  的一段代码 将引号的代码复制下来要用</p>
+<p>注：5.6版本可能出现问题那段代码中若无2013等可能会失败 需要重试</p>
+<p>php7.4版本</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-php-ext-install mysqli</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl install xdebug</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-php-ext-enable xdebug</span><br></pre></td></tr></table></figure></div>
+
+<p>第二行会出现需要用的代码</p>
+<h5 id="6-修改php-ini"><a href="#6-修改php-ini" class="headerlink" title="6.修改php.ini"></a>6.修改php.ini</h5><p>输入</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini</span><br></pre></td></tr></table></figure></div>
+
+<p>然后</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo “    刚才那段代码     ”  &gt;&gt; /usr/local/etc/php/php.ini</span><br></pre></td></tr></table></figure></div>
+
+<p>之后进入vim修改界面</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/etc/php/php.ini  </span><br></pre></td></tr></table></figure></div>
+
+<p><strong>输入/phar 找到两个 然后删除前面的两个；然后将两个On改为Off</strong></p>
+<p>然后shift+g到最后一行 按a还是按i修改来着 </p>
+<p>再一段奇特颜色的代码下</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[XDebug]</span><br><span class="line">xdebug.remote_enable=On</span><br><span class="line">xdebug.remote_host=host.docker.internal</span><br><span class="line">xdebug.remote_port=9000</span><br><span class="line">xdebug.auto_trace=On</span><br><span class="line">xdebug.collect_vars=On</span><br><span class="line">xdebug.collect_return=On</span><br><span class="line">xdebug.collect_params=On</span><br><span class="line">xdebug.idekey=密码自己设置哦</span><br><span class="line">xdebug.remote_log=&#x27;/tmp/xdebug.log&#x27;</span><br></pre></td></tr></table></figure></div>
+
+<p>格式严格按照如上</p>
+<p>回车输入 :wq保存退出</p>
+<p><strong>然后写进去之后重启apache服务</strong></p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apache2ctl restart</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="7-查看是否成功"><a href="#7-查看是否成功" class="headerlink" title="7.查看是否成功"></a>7.查看是否成功</h5><p>可以输入php -m再最后一行看是否有 Debug</p>
+<p>最主要的</p>
+<p>访问  <a target="_blank" rel="noopener" href="http://127.0.0.1:10001/">http://127.0.0.1:10001</a>   5.6版本</p>
+<p>​          <a target="_blank" rel="noopener" href="http://127.0.0.1:10002/">http://127.0.0.1:10002</a>  7.4 版本</p>
+<p>查看是否有 xdebug</p>
+<h1 id="部署phpstorm"><a href="#部署phpstorm" class="headerlink" title="部署phpstorm"></a>部署phpstorm</h1><p>1.新建文件打开</p>
+<p>2.点击运行绿色按钮旁边的edit configuration点左上角+号 phpremote debug 建立docker5.6和docker7.4</p>
+<p>要点filter debug  connect by IDE KEY 新建俩</p>
+<p>3.setting里找到development 继续新建俩docker5.6 7.4 里面点 Visbile only for this project </p>
+<p>type选择 inplace 地址填<a target="_blank" rel="noopener" href="http://127.0.0.1:10001/">http://127.0.0.1:10001</a> 7.4版本填10002</p>
+<p>4.最后找到RUN—-web server debug Vilatation 最后一行的 ———点击检测按钮 全是绿色</p>
+<p><strong><u>特别注意</u></strong> 7.4般的docker 会出现提示你该添加的 </p>
+<p>要进入docker 7.4然后</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot; 那段代码  &quot;  &gt;&gt; /usr/local/etc/php/php.ini</span><br></pre></td></tr></table></figure></div>
+
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /usr/local/etc/php/php.ini </span><br></pre></td></tr></table></figure></div>
+
+<p>   进入vim查看有那段代码</p>
+<p>再进行检测就好了；</p>
+
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2021/07/26/docker%20%E5%AE%89%E8%A3%85%20mysql%20%E4%BB%A5%E5%8F%8ASQL%20server/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">docker 安装 mysql 以及SQL server</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    <link rel="stylesheet" href="/css/gitment.css"> 
+<script src="/js/gitment.js"></script>
+
+<div id="gitmentContainer"></div>
+
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/123.jpg" title="无"></img>
+    <h3 class="avatar-name">
+      
+        花笙
+      
+    </h3>
+    <p class="avatar-slogan">
+      萌新
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2021/07/26/docker%20%E5%AE%89%E8%A3%85%20mysql%20%E4%BB%A5%E5%8F%8ASQL%20server/">docker 安装 mysql 以及SQL server</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://yiluyanxia.github.io/" title target='_blank'
+        >一路眼瞎</a>
+      
+        <a style="display: block;" href="http://l0sE2.top" title target='_blank'
+        >一号</a>
+      
+        <a style="display: block;" href="https://blog.lxscloud.top/" title target='_blank'
+        >大佬</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2021 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>

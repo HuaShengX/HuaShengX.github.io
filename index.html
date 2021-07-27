@@ -59,6 +59,37 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-docker-php+mysql配置debug环境" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-meta">
+    <a href="/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/" class="article-date">
+  <time datetime="2021-07-27T06:58:32.136Z" itemprop="datePublished">2021-07-27</time>
+</a>
+    
+    
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <hr>
+<h2 id="docker-php-mysql配置debug环境"><a href="#docker-php-mysql配置debug环境" class="headerlink" title=" docker-php+mysql配置debug环境"></a> docker-php+mysql配置debug环境</h2><h5 id="1-安装docker-装好后若打开遇到乱码百度搜-暂时解决方案为在cmd中输入netsh-winsock-reset然后重新打开"><a href="#1-安装docker-装好后若打开遇到乱码百度搜-暂时解决方案为在cmd中输入netsh-winsock-reset然后重新打开" class="headerlink" title="1.安装docker 装好后若打开遇到乱码百度搜 暂时解决方案为在cmd中输入netsh winsock reset然后重新打开"></a>1.安装docker 装好后若打开遇到乱码百度搜 暂时解决方案为在cmd中输入netsh winsock reset然后重新打开</h5><h5 id="2-进入cmd输入"><a href="#2-进入cmd输入" class="headerlink" title="2.进入cmd输入"></a>2.进入cmd输入</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 10001:80 -v 自己的文件中的位置:/var/www/html php:5.6-apache</span><br><span class="line">docker run -d -p 10002:80 -v 自己的文件中的位置:/var/www/html php:7.4-apache</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/#more">阅读全文</a>
+          </p>
+        
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-docker 安装 mysql 以及SQL server" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
     <header class="article-header">
@@ -147,6 +178,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2021/07/26/docker%20%E5%AE%89%E8%A3%85%20mysql%20%E4%BB%A5%E5%8F%8ASQL%20server/">docker 安装 mysql 以及SQL server</a>
