@@ -74,86 +74,12 @@
     
     <div class="article-content article-content-cloud" itemprop="articleBody">
       
-        <h1 id="pwn基础环境配置"><a href="#pwn基础环境配置" class="headerlink" title="pwn基础环境配置"></a>pwn基础环境配置</h1><p>目录清单</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Python3	3.5.2</span><br><span class="line">pip3	20.3.4</span><br><span class="line">gdb	9-1</span><br><span class="line">gcc-4.8（含64位和32位环境）—— 编译器</span><br><span class="line">pwntools —— CTF必备PWN库</span><br><span class="line"></span><br><span class="line">pwngdb   #可选</span><br><span class="line">pwndbg</span><br><span class="line">peda</span><br><span class="line">gef </span><br></pre></td></tr></table></figure></div>
-
-
-
-<p>操作系统</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ubuntu20.04</span><br></pre></td></tr></table></figure></div>
-
-
-
-
-
-<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu系统更新软件</span><br><span class="line"></span><br><span class="line">sudo apt-get update</span><br><span class="line">升级安装包相关的命令,刷新可安装的软件列表(但是不做任何实际的安装动作)</span><br><span class="line"> </span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">进行安装包的更新(软件版本的升级)</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br><span class="line">sudo gedit /etc/apt/sources.list</span><br><span class="line"></span><br><span class="line">添加</span><br><span class="line">deb http://ftp.us.debian.org/debian/ jessie main contrib non-free</span><br><span class="line">deb-src http://ftp.us.debian.org/debian/ jessie main contrib non-free</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h2 id="gcc编译环境安装"><a href="#gcc编译环境安装" class="headerlink" title="gcc编译环境安装"></a>gcc编译环境安装</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc</span><br><span class="line">9.4.0版本</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h2 id="安装gdb和peda插件"><a href="#安装gdb和peda插件" class="headerlink" title="安装gdb和peda插件"></a>安装gdb和peda插件</h2><p>ubuntu自带gdb  gdb -v</p>
-<p>没有的话 sudo apt install gdb</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/longld/peda.git /home/pwn/peda</span><br><span class="line">echo &quot;source ~/peda/peda.py&quot; &gt;&gt; ~/.gdbinit</span><br></pre></td></tr></table></figure></div>
-
-<p>gdb命令会显示gdb-peda$ 。</p>
-<p>peda官方链接:  <a target="_blank" rel="noopener" href="https://github.com/longld/peda/commit/2f48add05b44743fe6a305abc446b648d5e805f8">https://github.com/longld/peda/commit/2f48add05b44743fe6a305abc446b648d5e805f8</a></p>
-<h2 id="安装pwntools"><a href="#安装pwntools" class="headerlink" title="安装pwntools"></a>安装pwntools</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#提前安装pip</span><br><span class="line">sudo apt-get install python3-pip</span><br><span class="line">#安装pwntools</span><br><span class="line">pip install pwntools -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure></div>
-
-<p>判断是否成功</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python3</span><br><span class="line">from pwn import *</span><br><span class="line">&gt;&gt;&gt; p=ELF(&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;)</span><br><span class="line"></span><br><span class="line">#看是否出现一堆白色绿色的东西</span><br></pre></td></tr></table></figure></div>
-
-
-
-
-
-<h2 id="下载pwndbg-gdb插件"><a href="#下载pwndbg-gdb插件" class="headerlink" title="下载pwndbg(gdb插件)"></a>下载pwndbg(gdb插件)</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/pwndbg/pwndbg</span><br></pre></td></tr></table></figure></div>
-
-<p>下载可能会慢 换个git的源</p>
-<p>命令行gdb会报错</p>
-<p>Exception: Cannot override non-whitelisted built-in command “aslr”</p>
-<p>比如peda放到pwndbg前面了，可以把顺序换下</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.gdbinit</span><br><span class="line">可以换成如下:</span><br><span class="line"></span><br><span class="line">source /home/kali/Desktop/ctf/Space/pwndbg/gdbinit.py</span><br><span class="line">source ~/peda/peda.py</span><br></pre></td></tr></table></figure></div>
-
-
-
-<h2 id="安装gef"><a href="#安装gef" class="headerlink" title="安装gef"></a>安装gef</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/hugsy/gef.git</span><br><span class="line">echo &quot;source ~/gef/gef.py&quot;&gt;&gt; ~/.gdbinit</span><br></pre></td></tr></table></figure></div>
-
-
-
-<p>至此 三件套gef pwndbg peda安装好了</p>
-<p>要切换使用的话</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.gdbinit</span><br></pre></td></tr></table></figure></div>
-
-<p>需要用哪个就把其他#注释掉即可。</p>
-<p>然后输入gdb即可看到当前插件。</p>
-<h2 id="下载pwngdb（需要的话）"><a href="#下载pwngdb（需要的话）" class="headerlink" title="下载pwngdb（需要的话）"></a>下载pwngdb（需要的话）</h2><p>如需要看<a target="_blank" rel="noopener" href="https://www.52pojie.cn/thread-1673064-1-1.html">https://www.52pojie.cn/thread-1673064-1-1.html</a></p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/scwuaptx/Pwngdb.git     #建议在home目录下</span><br></pre></td></tr></table></figure></div>
-
-<p>下载完成后需要修改gdbinit 还需额外添加两个py同时要注意</p>
-<p>pwngdb和pwndbg的联合使用需要将第一行切换为<code>source ~/pwndbg/gdbinit.py</code> 否则会报错</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">source ~/pwndbg/gdbinit.py</span><br><span class="line">source ~/Pwngdb/pwngdb.py     </span><br><span class="line">source ~/peda/peda.py</span><br><span class="line">source ~/Pwngdb/angelheap/gdbinit.py</span><br><span class="line">source ~/gef/gef.py</span><br></pre></td></tr></table></figure></div>
-
-
-
-<p>如果想要方便不手动调整gdbinit，参考以下博客</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://www.52pojie.cn/thread-1673064-1-1.html</span><br><span class="line">https://blog.csdn.net/aptx4869_li/article/details/</span><br><span class="line">https://blog.csdn.net/weixin_45556441/article/details/115536426</span><br></pre></td></tr></table></figure></div>
-
-
-
-<p>搭建pwn环境参考了以下博客</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">参考博客</span><br><span class="line">https://bbs.pediy.com/thread-259199.htm</span><br><span class="line">https://blog.nowcoder.net/n/418890c38d024cabbdb0d536fb670713#peda_52</span><br><span class="line">https://blog.csdn.net/sorryagain/article/details/123932406</span><br><span class="line">https://blog.csdn.net/weixin_43889100/article/details/123214508</span><br><span class="line">https://blog.csdn.net/qq_54218833/article/details/125241618</span><br><span class="line">https://blog.csdn.net/weixin_43889100/article/details/123214508</span><br><span class="line">https://blog.csdn.net/qq_39153421/article/details/115386527</span><br><span class="line">https://www.cnblogs.com/luoleqi/p/14165817.html</span><br><span class="line">https://blog.csdn.net/zino00/article/details/122716412</span><br><span class="line">https://www.cnblogs.com/luoleqi/p/14165817.html#wsl2</span><br><span class="line">https://www.cnblogs.com/VxerLee/p/15424937.html#pwngdbgdb%E6%8F%92%E4%BB%B6                   它很全</span><br></pre></td></tr></table></figure></div>
-
-<p>学习pwn还可以参考以下博客</p>
-<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">https://bbs.pediy.com/thread-259272.htm</span><br><span class="line">https://blog.lxscloud.top/2021/07/03/2021-06-06-Pwn%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</span><br></pre></td></tr></table></figure></div>
-
-
-
-
+        <h1 id="pwn基础环境配置"><a href="#pwn基础环境配置" class="headerlink" title="pwn基础环境配置"></a>pwn基础环境配置</h1>
+        
+          <p class="article-more-link">
+            <a href="/2022/09/20/pwn%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
