@@ -59,6 +59,56 @@
       <div id="middlecontent" title class="global-width sidebar-right">
         <section id="main">
   
+    <article id="post-hexo博客提交报错问题" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+  <div class="article-meta">
+    <a href="/2022/10/01/hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" class="article-date">
+  <time datetime="2022-10-01T06:10:29.413Z" itemprop="datePublished">2022-10-01</time>
+</a>
+    
+    
+  </div>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-cloud" itemprop="articleBody">
+      
+        <h1 id="hexo博客提交报错问题"><a href="#hexo博客提交报错问题" class="headerlink" title="hexo博客提交报错问题"></a>hexo博客提交报错问题</h1><p>hexo g s本地都没有问题 </p>
+<p>而hexo-d报错全是这样的错误</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warning: LF will be replaced by CRLF in</span><br><span class="line">The file will have its original line endings in your working</span><br></pre></td></tr></table></figure></div>
+
+<p>百度查道存在符号<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%BD%AC%E4%B9%89&spm=1001.2101.3001.7020">转义</a>问题</p>
+<p>windows中的换行符为 CRLF， 而在linux下的换行符为LF，所以在执行add . 时出现提示，解决办法</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.autocrlf false</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+<p>然后继续hexo  d提交发现依然报错</p>
+<p>最后一行显示</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Branch master set up to track remote branch master from git@github.com:ifgyong/ifgyong.github.io.git. </span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>百度查到</p>
+<div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除了 .deploy_git 文件夹，然后 hexo clean ,hexo g -d </span><br></pre></td></tr></table></figure></div>
+
+<p>可以提交了显示进程，但是发现发现最后一行任然提示有问题，但是已经github更新了。</p>
+<p>但是发现更新的博客不是最新的，是刚刚改的前一个版本</p>
+<p>刷新一会即可。</p>
+<p>同时，timeout一般是网络问题，多切换几个节点试试。</p>
+
+      
+    </div>
+    
+  </div>
+  
+  
+</article>
+
+  
     <article id="post-pwn基础环境配置" class="article global-container article-type-post" itemscope itemprop="blogPost">
   
   <div class="article-meta">
@@ -268,7 +318,7 @@
   <div class="widget-box">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">September 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li></ul>
     </div>
   </div>
 
@@ -278,6 +328,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/10/01/hexo%E5%8D%9A%E5%AE%A2%E6%8F%90%E4%BA%A4%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2022/09/20/pwn%E5%9F%BA%E7%A1%80%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">(no title)</a>
@@ -293,10 +347,6 @@
         
           <li>
             <a href="/2021/07/27/docker-php+mysql%E9%85%8D%E7%BD%AEdebug%E7%8E%AF%E5%A2%83/">docker-php+mysql配置debug环境</a>
-          </li>
-        
-          <li>
-            <a href="/2021/07/26/docker%20%E5%AE%89%E8%A3%85%20mysql%20%E4%BB%A5%E5%8F%8ASQL%20server/">docker 安装 mysql 以及SQL server</a>
           </li>
         
       </ul>
